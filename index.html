@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>signup-login-form</title>
+</head>
+<body>
+    <h1>Signup Form</h1>
+    <form onsubmit="signup();return false">
+    
+        <label for="fullName">FullName:</label>
+        <input type="text" id="fullName" required>
+        <br>
+        <br>
+        <label for="lastName">LastName:</label>
+        <input type="text" id="lastName" required>
+        <br>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" required>
+        <br>
+        <br>
+        <label for="passward">Passward:</label>
+        <input type="text" id="passward" required>
+        <br>
+        <br>
+        <label for="repeatePassward">RepeatePassward:</label>
+        <input type="text" id="repeatePassward" required>
+        <br>
+        <br>
+        <button type="submit">signup</button>
+    
+    </form>
+    <p id="massage"></p>
+    
+
+    <script>
+        
+        function signup(){
+            var firstName = document.querySelector("#firstName").value;
+            var lastName = document.querySelector("#lastName").value;
+            var email = document.querySelector("#email").value;
+            var passward = document.querySelector("#passward").value;
+            var repeatPassward = document.querySelector("#repeatPassward").value;
+
+      
+//////////from axios library (post method)////
+            axios.post('https://login-signup-without-data-base.herokuapp.com/signup', {
+
+         firstName: firstName,
+         lastName: lastName,
+         email:     email,
+         passward:  passward,
+         repeatPassward: repeatPassward,
+  })
+       .then(function (response) {
+         console.log(response.data);
+
+         document.querySelector("#massage").innerHTML = response.massage;
+  })
+
+  .catch(function (error) {
+    console.log(error.massage);
+  });
+
+
+
+
+        }
+
+      
+
+
+
+
+    </script>
+</body>
+</html>
