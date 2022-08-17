@@ -30,6 +30,9 @@ input{
     font-size: 15px;
 
 }
+.in1{
+    margin-bottom: 10px;
+}
 .names{
     display: flex;
     margin-top: 25px;
