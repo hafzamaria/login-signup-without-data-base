@@ -1,81 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>signup-login-form</title>
+
+
+
 </head>
+
 <body>
-    <h1>Signup Form</h1>
-    <form onsubmit="signup();return false">
-    
-        <label for="fullName">FullName:</label>
-        <input type="text" id="fullName" required>
+    <div class="main">
+
+   <div class="start">
+         <h1 class="h1">Sign Up</h1>
+          <p class="para">please fill in this form to create an account!</p>
+   </div>
+
+    <form onsubmit="signup(); return false ">
+
+    <div class="names">
+
+        <label for="firstName"></label>
+        <input type="text" id="firstName" placeholder="FirstName:" required>
         <br>
         <br>
-        <label for="lastName">LastName:</label>
-        <input type="text" id="lastName" required>
+
+        <label for="lastName"></label>
+        <input type="text" id="lastName" placeholder="LastName:" required>
         <br>
         <br>
-        <label for="email">Email:</label>
-        <input type="text" id="email" required>
+                </div>
+
+        <label for="email"></label>
+        <input type="email" id="email" placeholder="Email:" required>
         <br>
         <br>
-        <label for="passward">Passward:</label>
-        <input type="text" id="passward" required>
+
+        <label for="password"></label>
+        <input type="password" id="password" placeholder="Password:" required>
         <br>
         <br>
-        <label for="repeatePassward">RepeatePassward:</label>
-        <input type="text" id="repeatePassward" required>
+
+        <label for="repeatPassword"></label>
+        <input type="password" id="repeatPassword" placeholder="Confirm Password:" required>
         <br>
         <br>
-        <button type="submit">signup</button>
-    
+
+        <!-- <input type="submit" value="Signup"> -->
+        <button class="but" type="submit">signup</button>
+
     </form>
-    <p id="massage"></p>
+
+    <p id="message"></p>
+
+    </div>
     
+    <div class="login">
+    Already have an account?<a href="./login.html">Login here</a>
+    </div>
+
 
     <script>
-        
-        function signup(){
-            var firstName = document.querySelector("#firstName").value;
-            var lastName = document.querySelector("#lastName").value;
-            var email = document.querySelector("#email").value;
-            var passward = document.querySelector("#passward").value;
-            var repeatPassward = document.querySelector("#repeatPassward").value;
-
-      
-//////////from axios library (post method)////
-            axios.post('https://login-signup-without-data-base.herokuapp.com/signup', {
-
-         firstName: firstName,
-         lastName: lastName,
-         email:     email,
-         passward:  passward,
-         repeatPassward: repeatPassward,
-  })
-       .then(function (response) {
-         console.log(response.data);
-
-         document.querySelector("#massage").innerHTML = response.massage;
-  })
-
-  .catch(function (error) {
-    console.log(error.massage);
-  });
 
 
 
+       
+        //             axios.post('http://localhost:3000/signup', {
 
+        //          firstName: firstName,
+        //          lastName: lastName,
+        //          email:     email,
+        //          passward:  passward,
+
+        //   })
+
+        function signup() {
+
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var repeatPassword = document.getElementById('repeatPassword').value;
+
+            if (password !== repeatPassword) {
+                document.querySelector("#message").innerHTML = 'Passwords do not match, please try again';
+                return;
+            }
+          // //////////from axios library (post method)////
+
+            axios.post('http://localhost:3000/signup', {
+
+                firstName: firstName,
+                lastName: lastName,
+                email:     email,
+                passward:  passward,
+
+            })
+                .then(function (response) {
+                    console.log(response.data);
+                    document.querySelector("#message").innerHTML = response.data.message;
+                })
+
+                .catch(function (error) {
+                    console.log(error.response.data);
+                    document.querySelector("#message").innerHTML = error.response.data.message;
+                });
         }
-
-      
-
-
-
-
     </script>
 </body>
+
 </html>
