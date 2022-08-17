@@ -67,18 +67,6 @@
 
     <script>
 
-
-
-       
-        //             axios.post('http://localhost:3000/signup', {
-
-        //          firstName: firstName,
-        //          lastName: lastName,
-        //          email:     email,
-        //          passward:  passward,
-
-        //   })
-
         function signup() {
 
             var firstName = document.getElementById('firstName').value;
@@ -93,7 +81,8 @@
             }
           // //////////from axios library (post method)////
 
-            axios.post('http://localhost:3000/signup', {
+            // axios.post('http://localhost:3000/signup', {
+                axios.post('https://login-signup-without-data-base.herokuapp.com/signup', {
 
                 firstName: firstName,
                 lastName: lastName,
