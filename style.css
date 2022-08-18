@@ -57,13 +57,13 @@ input{
     font-size:20px ;
     border: 1px solid  rgb(10, 172, 226);
 }
-.login{
+.link{
     text-align: center;
     color: whitesmoke;
     font-size: 25px;
     margin-top: 20px;
 }
-.login a{
+.link a{
     color: whitesmoke;
     margin-left: 10px;
 }
