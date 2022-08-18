@@ -66,6 +66,7 @@ input{
 .link a{
     color:darkblue;
     margin-left: 10px;
+    font-size: 15px;
 }
 
 @media only screen and (max-width: 1024px) {
