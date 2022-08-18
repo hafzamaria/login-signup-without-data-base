@@ -63,3 +63,30 @@ input{
     color: whitesmoke;
     margin-left: 10px;
 }
+@media only screen and (max-width: 768px) {
+    .main{
+    
+        height: 440px;
+        padding-top: -3px;
+        margin-top: 20px;
+        margin-left: 170px;
+        padding: 15px;
+    }
+    .login{
+        margin-top: 10px;
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .main{
+        margin-left: 23px ;
+        width:290px ;
+        height: 450px;
+    }
+    .names input{
+        width: 130px;
+    }
+    .in1{
+        width:280px ;
+    }
+}
