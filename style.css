@@ -90,3 +90,16 @@ input{
         width:280px ;
     }
 }
+@media only screen and (max-width: 320px) {
+    .main{ 
+        width:250px ;
+        margin-left: 15px;
+    }
+    .names input{
+        width: 110px;
+    }
+    .in1{
+        width:250px ;
+    }
+
+}
